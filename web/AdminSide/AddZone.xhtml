@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Zone</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:include src="Header.xhtml"></ui:include>
+        <ui:include src="Sidebar.xhtml"></ui:include>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Add Zone</h4>
+
+                                    <h:form>
+                                        <p:messages id="AddZone"/>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group ">
+                                                    <h:outputLabel for="state">Select State </h:outputLabel>
+                                                    <h:selectOneMenu id="state" class="form-control" value="#{commonManagedBean.sid}"  required="true" label="Select State">
+                                                        <f:selectItem itemLabel="--Select State--" noSelectionOption="true" itemDisabled="true"></f:selectItem>
+                                                        <f:selectItems id="txtstate" value="#{commonManagedBean.findAllState()}" var="state" itemValue="#{state.stateId}" itemLabel="#{state.stateName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.dropState}" render="district" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group ">
+                                                    <h:outputLabel> Select District </h:outputLabel>
+                                                    <h:selectOneMenu id="district" class="form-control" value="#{commonManagedBean.did}" required="true" label="Select District">
+                                                        <f:selectItem itemLabel="--Select District--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtdistrict" value="#{commonManagedBean.district}" var="dist" itemValue="#{dist.districtId}" itemLabel="#{dist.districtName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.dropdistrict}" render="taluka" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group ">
+                                                    <h:outputLabel>Select Taluka</h:outputLabel>
+                                                    <h:selectOneMenu id="taluka" class="form-control" value="#{commonManagedBean.tid}" required="true" label="Select Taluka">
+                                                        <f:selectItem itemLabel="--Select Taluka--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txttaluka" value="#{commonManagedBean.taluka}" var="tal" itemValue="#{tal.talukaId}" itemLabel="#{tal.talukaName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.droptaluka}" render="village" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group ">
+                                                    <h:outputLabel>Select Village</h:outputLabel>
+                                                    <h:selectOneMenu id="village" class="form-control" value="#{zoneManagedBean.villageid}" required="true" label="Select Village"> 
+                                                        <f:selectItem itemLabel="--Select Village--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtvillagename" value="#{commonManagedBean.village}" var="vill" itemValue="#{vill.villageId}" itemLabel="#{vill.villageName}"></f:selectItems>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Zone Name</h:outputLabel>
+                                                    <p:inputText autocomplete="off" class="form-control" id="txtzonename" value="#{zoneManagedBean.zoneName}" required="true" label="Zone Name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <p:commandButton class="btn btn-primary" update="@form" value="Add Zone" action="#{zoneManagedBean.InsertZone()}"></p:commandButton>
+                                        </div>
+
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ui:include src="Footer.xhtml"></ui:include>
+    </h:body>
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+</html>
+

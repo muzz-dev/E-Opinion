@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable id="statedata" value="#{stateManagedBean.findAllState}" var="state" bgcolor="#F1F1F1" border="10" cellpadding="5" cellspacing="3" first="0"  width="50%" dir="LTR" frame="hsides" rules="all" summary="This is a JSF code to create dataTable.">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{state.stateName}"></h:outputText>
+                    </f:facet>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <body data-sidebar="dark">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+
+                            <li>
+                                <a href="Dashboard.jsf" class="waves-effect">
+                                    <i class="bx bx-grid-vertical"></i>
+                                    <span key="t-chat">Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-map"></i>
+                                    <span key="t-email">Location</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><h:link outcome="ViewStates" >Manage State</h:link></li>
+                                    <li><h:link outcome="ViewDistrict" >Manage District</h:link></li>
+                                    <li><h:link outcome="ViewTaluka" >Manage Taluka</h:link></li>
+                                    <li><h:link outcome="ViewVillage" >Manage Village</h:link></li>
+                                    <li><h:link outcome="ViewZone" >Manage Zone</h:link></li>
+                                    <li><h:link outcome="ViewWard" >Manage Ward</h:link></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <h:link class="waves-effect" outcome="ViewQuestions">
+                                    <i class="bx bxs-paper-plane"></i>
+                                    <span key="t-chat">Questions</span>
+                                </h:link>
+                            </li>
+
+                            <li>
+                                <a href="Responses.jsf" class="waves-effect">
+                                    <i class="bx bxs-share"></i>
+                                    <span key="t-chat">Responses</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bxs-bar-chart-alt-2"></i>
+                                    <span key="t-email">Reports</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><h:link outcome="BarChart" >Bar Chart</h:link></li>
+                                    <li><h:link outcome="PieChart" >Pie Chart</h:link></li>
+                                    <li><h:link outcome="PolarAreaChart" >Polar Area Chart</h:link></li>
+                                    <li><h:link outcome="LineChart" >Line Chart</h:link></li>
+                                    <li><h:link outcome="DonutChart" >Donut Chart</h:link></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="ViewUser.jsf" class="waves-effect">
+                                    <i class="bx bxs-user-detail"></i>
+                                    <span key="t-chat">Users</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="ViewFeedback.jsf" class="waves-effect">
+                                    <i class="bx bx-clipboard"></i>
+                                    <span key="t-chat">Feedback</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+        </body>
+    </h:body>
+</html>
+

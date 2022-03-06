@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Login Page</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="AdminSide/assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="AdminSide/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="AdminSide/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="AdminSide/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <div class="account-pages my-5 pt-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+                        <div class="card overflow-hidden">
+                            <div class="bg-soft-primary">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <div class="text-primary p-4">
+                                            <h5 class="text-primary">Welcome Back !</h5>
+                                            <p>Sign in to continue to E-Opinion.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 align-self-end">
+                                        <img src="AdminSide/assets/images/profile-img.png" alt="" class="img-fluid"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-0"> 
+                                <div>
+                                    <a href="index.html">
+                                        <div class="avatar-md profile-user-wid mb-4">
+                                            <span class="avatar-title rounded-circle bg-light">
+                                                <img src="AdminSide/assets/images/logo.svg" alt="" class="rounded-circle" height="34"/>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2">
+                                    <h:form class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <label for="username">Username</label><br/>
+                                            <h:inputText class="form-control" id="username" a:placeholder="Enter username" value="#{loginManagedBean.username}" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="userpassword">Password</label>
+                                            <h:inputText class="form-control" id="password" a:placeholder="Enter password" value="#{loginManagedBean.password}" />
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h:commandButton class="btn btn-primary btn-block waves-effect waves-light" value="Log In" id="btnlogin" action="#{loginManagedBean.login()}" />
+                                        </div>
+
+                                        <div class="mt-4 text-center">
+                                            <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
+                                        </div>
+                                    </h:form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-3 text-center">
+
+                            <div>
+                                <p>Don't have an account ? <h:link outcome="Registration" class="font-weight-medium text-primary" >Signup Now</h:link> </p>
+                                <p>© <script>document.write(new Date().getFullYear())</script> E-Opinion.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <h:link outcome="/AdminSide/tblState/List" value="Show All TblState Items"/>
+    </h:body>
+
+    <script src="AdminSide/assets/libs/jquery/jquery.min.js"></script>
+    <script src="AdminSide/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="AdminSide/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="AdminSide/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="AdminSide/assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- apexcharts -->
+    <script src="AdminSide/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Saas dashboard init -->
+    <script src="AdminSide/assets/js/pages/saas-dashboard.init.js"></script>
+
+    <script src="AdminSide/assets/js/app.js"></script>
+</html>
+

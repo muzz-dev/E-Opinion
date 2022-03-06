@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Registration | E-Opinion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Premium Multipurpose Admin  Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="AdminSide/assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="AdminSide/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="AdminSide/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="AdminSide/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <div class="account-pages my-2 pt-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-12 col-xl-12">
+                        <div class="card overflow-hidden">
+                            <div class="bg-soft-primary">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <div class="text-primary p-4">
+                                            <h5 class="text-primary">Free Register</h5>
+                                            <p>Get your free E-Opinion account now.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-0">
+                                <div>
+                                    <a href="index.html">
+                                        <div class="avatar-md profile-user-wid mb-4">
+                                            <span class="avatar-title rounded-circle bg-light">
+                                                <img src="AdminSide/assets/images/logo.svg" alt="" class="rounded-circle" height="34"/>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2">
+                                    <h:form>
+                                        <p:messages id="register"/>
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Full Name</h:outputLabel>
+                                                    <p:inputText autocomplete="off" class="form-control" value="#{userManagedBean.userfullname}" required="true" label="Full Name"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Email</h:outputLabel>
+                                                    <p:inputText autocomplete="off" class="form-control" value="#{userManagedBean.emailid}" required="true" label="E-mail" validatorMessage="Invalid email format">
+                                                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                                    </p:inputText>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Mobile</h:outputLabel>
+                                                    <p:inputText autocomplete="off" class="form-control" value="#{userManagedBean.mobilenumber}" required="true" label="Mobile Number" validatorMessage="Mobile Number must contaion 10 digit">
+                                                     <f:validateRegex pattern="^[0-9]{10}$" />
+                                                    </p:inputText>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Aadhar Card</h:outputLabel>
+                                                    <p:inputText  autocomplete="off" class="form-control" value="#{userManagedBean.aadharnumber}" required="true" label="Aadhar Number" validatorMessage="Aadhar Card have 12 digit">
+                                                    <f:validateRegex pattern="^[0-9]{10,12}$"/>
+                                                    </p:inputText>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Username</h:outputLabel>
+                                                    <p:inputText autocomplete="off" value="#{userManagedBean.userName}" class="form-control" required="true" label="User Name" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Password</h:outputLabel>
+                                                    <p:inputText autocomplete="off" class="form-control" value="#{userManagedBean.password}" required="true" label="Password" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel for="state">Select State </h:outputLabel>
+                                                    <h:selectOneMenu id="state" class="form-control" value="#{commonManagedBean.sid}" required="true" label="Select State"  >
+                                                        <f:selectItem itemLabel="--Select State--" noSelectionOption="true" itemDisabled="true" ></f:selectItem>
+                                                        <f:selectItems id="txtstate" value="#{commonManagedBean.findAllState()}" var="state" itemValue="#{state.stateId}" itemLabel="#{state.stateName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.dropState}" render="district" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel> Select District </h:outputLabel>
+                                                    <h:selectOneMenu id="district" class="form-control" value="#{commonManagedBean.did}" required="true" label="Select District" >
+                                                        <f:selectItem itemLabel="--Select District--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtdistrict" value="#{commonManagedBean.district}" var="dist" itemValue="#{dist.districtId}" itemLabel="#{dist.districtName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.dropdistrict}" render="taluka" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Select Taluka</h:outputLabel>
+                                                    <h:selectOneMenu id="taluka" class="form-control" value="#{commonManagedBean.tid}" required="true" label="Select Taluka">
+                                                        <f:selectItem itemLabel="--Select Taluka--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txttaluka" value="#{commonManagedBean.taluka}" var="tal" itemValue="#{tal.talukaId}" itemLabel="#{tal.talukaName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.droptaluka}" render="village" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Select Village</h:outputLabel>
+                                                    <h:selectOneMenu id="village" class="form-control" value="#{commonManagedBean.vid}" required="true" label="Select Village" >
+                                                        <f:selectItem itemLabel="--Select Village--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtvillagename" value="#{commonManagedBean.village}" var="vill" itemValue="#{vill.villageId}" itemLabel="#{vill.villageName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.dropVillage}" render="zone" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Select Zone</h:outputLabel>
+                                                    <h:selectOneMenu id="zone" class="form-control" value="#{commonManagedBean.zid}" required="true" label="Select Zone" >
+                                                        <f:selectItem itemLabel="--Select Zone--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtzone" value="#{commonManagedBean.zone}" var="zone" itemValue="#{zone.zoneId}" itemLabel="#{zone.zoneName}"></f:selectItems>
+                                                        <f:ajax listener="#{commonManagedBean.dropZone}" render="ward" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Select Ward</h:outputLabel>
+                                                    <h:selectOneMenu id="ward" class="form-control" value="#{userManagedBean.wardid}" required="true" label="Select Ward">
+                                                        <f:selectItem itemLabel="--Select Ward--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtWard" value="#{commonManagedBean.ward}" var="ward" itemValue="#{ward.wardId}" itemLabel="#{ward.wardName}"></f:selectItems>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Select Cast</h:outputLabel>
+                                                    <h:selectOneMenu id="cast" class="form-control" value="#{userManagedBean.castid}" required="true" label="Select Cast" >
+                                                        <f:selectItem itemLabel="--Select Cast--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItems id="txtcast" value="#{castManagedBean.findAllCast()}" var="cast" itemValue="#{cast.castId}" itemLabel="#{cast.castName}"></f:selectItems>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Religion</h:outputLabel>
+                                                    <p:inputText autocomplete="off" value="#{userManagedBean.religion}" class="form-control" required="true" label="Religion" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Gender</h:outputLabel>
+                                                    <h:selectOneMenu id="gender" class="form-control" value="#{userManagedBean.gender}" required="true" label="Select Gender" >
+                                                        <f:selectItem itemLabel="--Select Gender--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                        <f:selectItem itemLabel="Male" itemValue="Male"/>
+                                                        <f:selectItem itemLabel="Female" itemValue="Female"/>
+                                                        <f:selectItem itemLabel="Transgender" itemValue="Transgender"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <h:outputLabel>Address</h:outputLabel>
+                                                    <p:inputText autocomplete="off" value="#{userManagedBean.address}" class="form-control" required="true" label="Address" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <p:commandButton class="btn btn-primary btn-block"
+                                                             action="#{userManagedBean.Register()}" value="Register" update="@form"></p:commandButton>
+                                        </div>
+                                    </h:form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-3 text-center">
+
+                            <div>
+                                <p>Already have an account ? <h:link outcome="index" class="font-weight-medium text-primary" >Login</h:link></p>
+                                <p>© <script>document.write(new Date().getFullYear())</script> E-Opinion.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- JAVASCRIPT -->
+        <script src="AdminSide/assets/libs/jquery/jquery.min.js"></script>
+        <script src="AdminSide/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="AdminSide/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="AdminSide/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="AdminSide/assets/libs/node-waves/waves.min.js"></script>
+
+        <!-- apexcharts -->
+        <script src="AdminSide/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+        <!-- Saas dashboard init -->
+        <script src="AdminSide/assets/js/pages/saas-dashboard.init.js"></script>
+
+        <script src="AdminSide/assets/js/app.js"></script>
+    </h:body>
+</html>
+

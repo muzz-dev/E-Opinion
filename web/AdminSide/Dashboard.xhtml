@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>E-Opinion | Dashboard</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:include src="Header.xhtml"></ui:include>
+        <ui:include src="Sidebar.xhtml"></ui:include>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18"></h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">E-Opinion</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+
+                    <div class="row">
+                        <div class="col-xl-4">
+                            <div class="card bg-soft-primary">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <div class="text-primary p-3">
+                                                <h5 class="text-primary">Welcome!</h5>
+                                                <p>E-Opinion Dashboard</p>
+
+                                                <ul class="pl-3 mb-0">
+                                                    <li>Mobile Application Coming Soon</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 align-self-end">
+                                            <img src="assets/images/profile-img.png" alt="" class="img-fluid"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-8">
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="avatar-xs mr-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
+                                                        <i class="bx bx-copy-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-14 mb-0">Total Users</h5>
+                                            </div>
+                                            <div class="text-muted mt-4 align-items-center">
+                                                <h4>#{dashboardManagedBean.userCounts()}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="avatar-xs mr-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
+                                                        <i class="bx bx-archive-in"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-14 mb-0">Total Question</h5>
+                                            </div>
+                                            <div class="text-muted mt-4">
+                                                <h4>#{dashboardManagedBean.questionCounts()}</h4>
+                                                <!--                                                <div class="d-flex">
+                                                                                                    <span class="badge badge-soft-success font-size-12"> + 0.2% </span> <span class="ml-2 text-truncate">From previous period</span>
+                                                                                                </div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="avatar-xs mr-3">
+                                                    <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-18">
+                                                        <i class="bx bx-purchase-tag-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <h5 class="font-size-14 mb-0">Total Responses</h5>
+                                            </div>
+                                            <div class="text-muted mt-4">
+                                                <h4> #{dashboardManagedBean.responseCounts()}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                    </div>
+
+                    <h:form>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="clearfix">
+                                            <div class="float-right">
+                                                <div class="input-group input-group-sm">
+                                                </div>
+                                            </div>
+                                            <h4 class="card-title mb-4">Bar Chart</h4>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="col-md-12">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-12 p-lg-12 p-xl-12">
+                                                            <div class="card">
+                                                                <p:barChart id="barchart" model="#{chartManagedBean.barModel}" style="width: 100%; height: 500px;"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label>Select Question Type</label>
+                                                            <h:selectOneMenu id="quesType" class="form-control" value="#{chartManagedBean.quetypeId}"  required="true">
+                                                                <f:selectItem itemLabel="--Select Question Type--" noSelectionOption="true" itemDisabled="true"></f:selectItem>
+                                                                <f:selectItems id="txtquesType" value="#{chartManagedBean.allQuesType()}" var="queType" itemValue="#{queType.questionTypeId}" itemLabel="#{queType.typeName}"></f:selectItems>
+                                                                <f:ajax listener="#{chartManagedBean.allquestionType}" render="barchart" />  
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label>Select State</label>
+                                                            <h:selectOneMenu id="state" class="form-control" value="#{chartManagedBean.stateId}"  required="true">
+                                                                <f:selectItem itemLabel="--Select State--" noSelectionOption="true" itemDisabled="true"></f:selectItem>
+                                                                <f:selectItems id="txtstate" value="#{chartManagedBean.findAllState()}" var="state" itemValue="#{state.stateId}" itemLabel="#{state.stateName}"></f:selectItems>
+                                                                <f:ajax listener="#{chartManagedBean.dropState}" render="district barchart"/>
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label>Select District</label>
+                                                            <h:selectOneMenu id="district" class="form-control" value="#{chartManagedBean.distId}" required="true">
+                                                                <f:selectItem itemLabel="--Select District--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                                <f:selectItems id="txtdistrict" value="#{chartManagedBean.district}" var="dist" itemValue="#{dist.districtId}" itemLabel="#{dist.districtName}"></f:selectItems>
+                                                                <f:ajax listener="#{chartManagedBean.dropdistrict}" render="taluka barchart" />
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="formrow-inputState">Select Taluka</label>
+                                                            <h:selectOneMenu id="taluka" class="form-control" value="#{chartManagedBean.talId}" required="true">
+                                                                <f:selectItem itemLabel="--Select Taluka--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                                <f:selectItems id="txttaluka" value="#{chartManagedBean.taluka}" var="tal" itemValue="#{tal.talukaId}" itemLabel="#{tal.talukaName}"></f:selectItems>
+                                                                <f:ajax listener="#{chartManagedBean.droptaluka}" render="village barchart" />
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="formrow-inputState">Select Village</label>
+                                                            <h:selectOneMenu id="village" class="form-control" value="#{chartManagedBean.vilId}" required="true">
+                                                                <f:selectItem itemLabel="--Select Village--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                                <f:selectItems id="txtvillagename" value="#{chartManagedBean.village}" var="vill" itemValue="#{vill.villageId}" itemLabel="#{vill.villageName}"></f:selectItems>
+                                                                <f:ajax listener="#{chartManagedBean.dropVillage}" render="zone barchart" />
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="formrow-inputState">Select Zone</label>
+                                                            <h:selectOneMenu id="zone" class="form-control" value="#{chartManagedBean.zoneId}" >
+                                                                <f:selectItem itemLabel="--Select Zone--" itemDisabled="true"  noSelectionOption="true"></f:selectItem>
+                                                                <f:selectItems id="txtzone" value="#{chartManagedBean.zone}" var="zone" itemValue="#{zone.zoneId}" itemLabel="#{zone.zoneName}"></f:selectItems>
+                                                                <f:ajax listener="#{chartManagedBean.dropZone}" render="barchart" />
+                                                            </h:selectOneMenu>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <ui:include src="Footer.xhtml"></ui:include>
+    </h:body>
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+</html>
+

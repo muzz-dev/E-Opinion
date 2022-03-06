@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <body data-sidebar="dark">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+
+                            <li>
+                                <h:link outcome="Feed" class="waves-effect">
+                                    <i class="bx bxs-paper-plane"></i>
+                                    <span key="t-chat">Give Opinion</span>
+                                </h:link>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-map"></i>
+                                    <span key="t-email">Location</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><h:link outcome="ViewStates"  class="waves-effect">View State</h:link></li>
+                                    <li><h:link outcome="ViewDistrict"  class="waves-effect">View District</h:link></li>
+                                    <li><h:link outcome="ViewTaluka"  class="waves-effect">View Taluka</h:link></li>
+                                    <li><h:link outcome="ViewVillage"  class="waves-effect">View Village</h:link></li>
+                                    <li><h:link outcome="ViewZone"  class="waves-effect">View Zone</h:link></li>
+                                    <li><h:link outcome="ViewWard"  class="waves-effect">View Ward</h:link></li>
+                                </ul>
+                            </li>
+
+
+                             <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bxs-bar-chart-alt-2"></i>
+                                    <span key="t-email">Reports</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><h:link outcome="BarChart" >Bar Chart</h:link></li>
+                                    <li><h:link outcome="PieChart" >Pie Chart</h:link></li>
+                                    <li><h:link outcome="PolarAreaChart" >Polar Area Chart</h:link></li>
+                                    <li><h:link outcome="LineChart" >Line Chart</h:link></li>
+                                    <li><h:link outcome="DonutChart" >Donut Chart</h:link></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <h:link outcome="AddFeedback" class="waves-effect" >
+                                    <i class="bx bx-clipboard"></i>
+                                    <span key="t-chat">Feedback</span>
+                                </h:link>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+        </body>
+    </h:body>
+</html>
+

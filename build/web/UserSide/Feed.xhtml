@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Feed | E-Opinion</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+        <!-- DataTables -->
+        <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />   
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:include src="Header.xhtml"></ui:include>
+        <ui:include src="Sidebar.xhtml"></ui:include>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18">E-Opinion</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Feed</a></li>
+                                        <li class="breadcrumb-item active">E-Opinion</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs nav-tabs-custom justify-content-center pt-2" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#all-post" role="tab">
+                                            All Question
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#archive" role="tab">
+                                            Response  
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content p-4">
+                                    <div class="tab-pane active" id="all-post" role="tabpanel">
+                                        <div>
+                                            <div class="row justify-content-center">
+                                                <div class="col-xl-8">
+                                                    <div>
+                                                        <h:form id="feed">
+                                                            <p:dataTable value="#{answerManagedBean.allQuestion()}" var="question" paginator="true" paginatorPosition="bottom" rows="1"
+                                                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                                                         >
+                                                                <p:column headerText="Feed" style="align-self: center">
+                                                                    <div class="my-3">
+
+                                                                        <h5>#{question.title}</h5>
+                                                                        <p class="text-muted">#{question.date}</p>
+
+                                                                        <div>
+                                                                            <p:selectOneRadio id="option" value="#{answerManagedBean.ans}" layout="pageDirection">
+                                                                                <div class="custom-control custom-radio mb-3">
+                                                                                    <f:selectItem itemLabel="#{question.optionA}" itemValue="A"/>
+                                                                                </div>
+                                                                                <div class="custom-control custom-radio mb-3">
+                                                                                    <f:selectItem itemLabel="#{question.optionB}" itemValue="B"/>
+                                                                                </div>
+<!--                                                                                <div class="custom-control custom-radio mb-3">
+                                                                                    <f:selectItem itemLabel="#{question.optionC}" itemValue="C"/>
+                                                                                </div>
+                                                                                <div class="custom-control custom-radio mb-3">
+                                                                                    <f:selectItem itemLabel="#{question.optionD}" itemValue="D"/>
+                                                                                </div>-->
+                                                                            </p:selectOneRadio>
+                                                                        </div>
+                                                                        <div class="mt-3">
+                                                                            <h:commandButton  class="btn btn-primary btn-lg btn-block waves-effect waves-light mb-1" action="#{answerManagedBean.addanswer()}" value="Give your opinion">
+                                                                                <f:setPropertyActionListener value="#{question}" target="#{answerManagedBean.currentQuestion}" />
+                                                                            </h:commandButton>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!--<hr class="my-2"/>-->
+                                                                </p:column>
+                                                            </p:dataTable>   
+                                                        </h:form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="archive" role="tabpanel">
+                                        <div>
+                                            <div class="row justify-content-center">
+                                                <div class="col-xl-8">
+                                                    <h5>Archive</h5>
+
+                                                    <div class="mt-5">
+                                                        <div class="d-flex flex-wrap">
+                                                            <div class="mr-2">
+                                                                <h4>2020</h4>
+                                                            </div>
+                                                            <div class="ml-auto">
+                                                                <span class="badge badge-soft-success badge-pill float-right ml-1 font-size-12">03</span>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="mt-2"/>
+
+                                                        <div class="list-group list-group-flush">
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Beautiful Day with Friends</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Drawing a sketch</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Project discussion with team</a>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mt-5">
+                                                        <div class="d-flex flex-wrap">
+                                                            <div class="mr-2">
+                                                                <h4>2019</h4>
+                                                            </div>
+                                                            <div class="ml-auto">
+                                                                <span class="badge badge-soft-success badge-pill float-right ml-1 font-size-12">06</span>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="mt-2"/>
+
+                                                        <div class="list-group list-group-flush">
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Coffee with Friends</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Neque porro quisquam est</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Quis autem vel eum iure</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Cras mi eu turpis</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Drawing a sketch</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Project discussion with team</a>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mt-5">
+                                                        <div class="d-flex flex-wrap">
+                                                            <div class="mr-2">
+                                                                <h4>2018</h4>
+                                                            </div>
+                                                            <div class="ml-auto">
+                                                                <span class="badge badge-soft-success badge-pill float-right ml-1 font-size-12">03</span>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="mt-2"/>
+
+                                                        <div class="list-group list-group-flush">
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Beautiful Day with Friends</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Drawing a sketch</a>
+
+                                                            <a href="blog-details.html" class="list-group-item text-muted"><i class="mdi mdi-circle-medium mr-1"></i> Project discussion with team</a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <ui:include src="Footer.xhtml"></ui:include>
+    </h:body>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="assets/libs/jszip/jszip.min.js"></script>
+    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables.init.js"></script>    
+
+    <script src="assets/js/app.js"></script>
+
+</html>
