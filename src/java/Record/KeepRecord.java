@@ -13,12 +13,12 @@ import javax.security.enterprise.identitystore.CredentialValidationResult;
  * @author muzz
  */
 public class KeepRecord {
-    private static CredentialValidationResult result;
-    private static CallerPrincipal principal;
-    private static Set<String> roles;
-    private static String username;
-    private static String password;
-    private static String userId;
+    public static CredentialValidationResult result;
+    public static CallerPrincipal principal;
+    public static Set<String> roles;
+    public static String username;
+    public static String password;
+    public static String userId;
 
     public static CredentialValidationResult getResult() {
         return result;

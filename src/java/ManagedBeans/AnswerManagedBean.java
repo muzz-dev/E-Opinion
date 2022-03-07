@@ -5,6 +5,7 @@
 package ManagedBeans;
 
 import Entity.TblQuestion;
+import Record.KeepRecord;
 import User.UserSessionBeanLocal;
 import java.io.Serializable;
 import static java.lang.Integer.parseInt;
@@ -28,6 +29,7 @@ public class AnswerManagedBean implements Serializable {
     @EJB
     UserSessionBeanLocal usb;
     TblQuestion currentQuestion;
+    Integer id = parseInt(KeepRecord.userId);
 
     public TblQuestion getCurrentQuestion() {
         return currentQuestion;
@@ -78,7 +80,7 @@ public class AnswerManagedBean implements Serializable {
     public String addanswer() {
 //        System.out.println(ans + currentQuestion.getQuestionId() +userId );
 
-        this.usb.Answer(currentQuestion.getQuestionId(), 19, ans);
+        this.usb.Answer(currentQuestion.getQuestionId(), id, ans);
         ans = null;
         return "/UserSide/Feed.jsf?faces-redirect=true";
     }

@@ -18,6 +18,8 @@ import Entity.TblUser;
 import Entity.TblVillage;
 import Entity.TblWard;
 import Entity.TblZone;
+import Record.KeepRecord;
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.ejb.Stateless;
@@ -110,10 +112,11 @@ public class UserSessionBean implements UserSessionBeanLocal {
     @Override
     public Collection<TblQuestion> findAllQuestion() {
         Collection<TblQuestion> que = em.createNamedQuery("TblQuestion.findAll").getResultList();
+        Integer id = parseInt(KeepRecord.userId);
         Collection<TblQuestion> result = new ArrayList();
         for (TblQuestion ques : que) {
 //            System.out.println(ques.getQuestionId());
-            Integer count = em.createNamedQuery("TblQuestionAnswer.findByUserAndQuestionId").setParameter("userId",19).setParameter("questionId", ques.getQuestionId()).getResultList().size();
+            Integer count = em.createNamedQuery("TblQuestionAnswer.findByUserAndQuestionId").setParameter("userId",id).setParameter("questionId", ques.getQuestionId()).getResultList().size();
             if (count == 0) {
                 result.add(ques);
             }

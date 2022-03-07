@@ -4,6 +4,7 @@
  */
 package Servlets;
 
+import Record.KeepRecord;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -41,6 +42,7 @@ public class CheckingServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             HttpSession session = request.getSession();
+            out.println("<h1>Session</h1>");
             out.println("<h1>Username: " + session.getAttribute("username") + "</h1>");
             out.println("<h1>User Id: " + session.getAttribute("userId") + "</h1>");
             out.println("<h1>User Type: " + session.getAttribute("userType") + "</h1>");
